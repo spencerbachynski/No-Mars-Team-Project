@@ -1,0 +1,36 @@
+CREATE TABLE User {
+UserID int NOT NULL,
+Email varchar {255},
+FirstName varchar {50},
+LastName varchar {50},
+Password char {50},
+Address varchar {100},
+PostCode varchar {50},
+City varchar {100},
+Province varchar {100},
+Phone varchar {100},
+PRIMARY KEY {UserID}
+};
+
+CREATE TABLE Product (
+ProductID int NOT NULL,
+ProductName varchar(50),
+ProductDesc varchar(255),
+ProductImage image,
+ProductPrice decimal(10,2),
+ProductStock int,
+ProductRating SMALLINT NOT NULL,
+PRIMARY KEY (ProductID)
+);
+
+CREATE TABLE Orders (
+OrderID int NOT NULL,
+OrderNumber int NOT NULL,
+OrderShip datetime,
+OrderReceive datetime, 
+ProductID int,
+UserID int,
+PRIMARY KEY (OrderID),
+FOREIGN KEY (ProductID) REFERENCES Product(ProductID),
+FOREIGN KEY (UserID) REFERENCES User(UserID)
+); 
