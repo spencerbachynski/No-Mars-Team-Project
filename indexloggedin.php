@@ -11,12 +11,26 @@
         $price = $_SESSION["price"];
 
         
-        $db = new mysqli("localhost", "username", "password", "database");
+        $db = new mysqli("mysqlusr.cs.uregina.ca", "trinh23t", "nomarsteam", "trinh23t-0");
         if ($db->connect_error) {
             die ("Connection failed: " . $db->connect_error);
         }
     }
     
+    
+    $price = trim($_GET["productprice"]);
+    $_SESSION["productprice"] = $price;
+
+    $q1 = "SELECT ProductName, ProductPrice, ProductImage FROM Product WHERE ProductPrice = '$price'";
+    $result = $db->query($q1);
+
+    echo $price;
+    while ($row = mysqli_fetch_assoc($result))
+    {
+        $_SESSION["ProductName"] = $row["ProductName"];
+        $_SESSION["ProductImage"] = $row["ProductImage"];
+    }
+
 
 ?>
 
@@ -115,7 +129,12 @@
                             </div>
                             <div class="price">
                                 <label class="sale">$89.99</label>
-                                <label>49.99</label>
+                                <label>59.99</label>
+                                <form id="productprice" action="indexloggedin.php" method="get" enctype="multipart/form-data">
+                    <button type="submit" name="productprice" id="productprice" value="59.99">
+                        Add to Cart
+                    </button>
+                    </form>
                             </div>
                         </div>
                     </div>
@@ -135,9 +154,15 @@
                             <div class="price">
                                 <label class="sale">$89.99</label>
                                 <label>49.99</label>
+                                <form id="productprice" action="indexloggedin.php" method="get" enctype="multipart/form-data">
+                    <button type="submit" name="productprice" id="productprice" value="49.99">
+                        Add to Cart
+                    </button>
+                    </form>
                             </div>
                         </div>
                     </div>
+
 
 
                     <div class="most-rated-item">
@@ -155,7 +180,12 @@
                             </div>
                             <div class="price">
                                 <label class="sale">$89.99</label>
-                                <label>49.99</label>
+                                <label>39.99</label>
+                                <form id="productprice" action="indexloggedin.php" method="get" enctype="multipart/form-data">
+                    <button type="submit" name="productprice" id="productprice" value="39.99">
+                        Add to Cart
+                    </button>
+                    </form>
                             </div>
                         </div>
                     </div>
@@ -176,7 +206,12 @@
                         <div class="popular-products-body">
                             <h4>Woman Coat</h4>
                             <div class="price">
-                                <label>49.99</label>
+                                <label>59.99</label>
+                                <form id="productprice" action="indexloggedin.php" method="get" enctype="multipart/form-data">
+                    <button type="submit" name="productprice" id="productprice" value="59.99">
+                        Add to Cart
+                    </button>
+                    </form>
                             </div>
                         </div>
                     </div>
@@ -188,7 +223,12 @@
                         <div class="popular-products-body">
                             <h4>Woman Dress</h4>
                             <div class="price">
-                                <label>49.99</label>
+                                <label>79.99</label>
+                                <form id="productprice" action="indexloggedin.php" method="get" enctype="multipart/form-data">
+                    <button type="submit" name="productprice" id="productprice" value="79.99">
+                        Add to Cart
+                    </button>
+                    </form>
                             </div>
                         </div>
                     </div>
@@ -201,6 +241,11 @@
                             <h4>Unisex Shoe</h4>
                             <div class="price">
                                 <label>49.99</label>
+                                <form id="productprice" action="indexloggedin.php" method="get" enctype="multipart/form-data">
+                    <button type="submit" name="productprice" id="productprice" value="49.99">
+                        Add to Cart
+                    </button>
+                    </form>
                             </div>
                         </div>
                     </div>
@@ -212,7 +257,12 @@
                         <div class="popular-products-body">
                             <h4>Woman Sweater</h4>
                             <div class="price">
-                                <label>49.99</label>
+                                <label>29.99</label>
+                                <form id="productprice" action="indexloggedin.php" method="get" enctype="multipart/form-data">
+                    <button type="submit" name="productprice" id="productprice" value="29.99">
+                        Add to Cart
+                    </button>
+                    </form>
                             </div>
                         </div>
                     </div>
@@ -225,6 +275,11 @@
                             <h4>Unisex Shoe</h4>
                             <div class="price">
                                 <label>49.99</label>
+                                <form id="productprice" action="indexloggedin.php" method="get" enctype="multipart/form-data">
+                    <button type="submit" name="productprice" id="productprice" value="49.99">
+                        Add to Cart
+                    </button>
+                    </form>
                             </div>
                         </div>
                     </div>
@@ -236,7 +291,12 @@
                         <div class="popular-products-body">
                             <h4>Man Shirt</h4>
                             <div class="price">
-                                <label>49.99</label>
+                                <label>39.99</label>
+                                <form id="productprice" action="indexloggedin.php" method="get" enctype="multipart/form-data">
+                    <button type="submit" name="productprice" id="productprice" value="39.99">
+                        Add to Cart
+                    </button>
+                    </form>
                             </div>
                         </div>
                     </div>

@@ -13,7 +13,7 @@
         $name = $_SESSION["ProductName"];
 
         
-        $db = new mysqli("localhost", "username", "password", "database");
+        $db = new mysqli("mysqlusr.cs.uregina.ca", "trinh23t", "nomarsteam", "trinh23t-0");
         if ($db->connect_error) {
             die ("Connection failed: " . $db->connect_error);
         }
@@ -122,14 +122,16 @@
     </header>
 
     <div class="poggers">
-        <form method="post" enctype="multipart/form-data">
+        <form method="post" enctype="multipart/form-data" id="checkout">
         <h2>Payment</h2>
         <div class="input-box">
         <input type="text" placeholder="Enter your credit/debit card" id="card" name="card">
+        <label id="card_msg" class="err_msg"></label>
         </div>
         <br>
         <div class="input-box">
         <input type="text" placeholder="Enter your CVV (Ex. 123)" id="cvv" name="cvv">
+        <label id="cvv_msg" class="err_msg"></label>
         </div>
         <br>
         <div class="input-box">
@@ -190,6 +192,6 @@
                 </div>
             </div>
         </div>
-        <script type="text/javascript" src="No Mar.js"> </script> 
 </body>
+<script type="text/javascript" src="No Mar.js"> </script> 
 </html>

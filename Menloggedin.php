@@ -10,7 +10,7 @@
         $email = $_SESSION["email"];
 
         
-        $db = new mysqli("localhost", "username", "password", "database");
+        $db = new mysqli("mysqlusr.cs.uregina.ca", "trinh23t", "nomarsteam", "trinh23t-0");
         if ($db->connect_error) {
             die ("Connection failed: " . $db->connect_error);
         }
@@ -126,12 +126,15 @@
                                 <i class="fa-solid fa-star"></i>
                             </div>
                             <div class="price">
-                                <label class="sale">$89.99</label>
-                                <label>49.99</label>
+                                <label>39.99</label>
                             </div>
                         </div>
                     </div>
-              
+                    <form id="productprice" action="Menloggedin.php" method="get" enctype="multipart/form-data">
+                    <button type="submit" name="productprice" id="productprice" value="39.99">
+                        Add to Cart
+                    </button>
+                    </form>
            
                    
 					
