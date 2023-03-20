@@ -32,7 +32,6 @@
                 <li><a href="index.php" class="active">No Mars</a></li>
                     <li><a href="Category.php" class="#category">Category</a></li>
                     <li><a href="Products.php" class="#products">Products</a></li>
-                    <li><a href="New.php" class="#news">News</a></li>
                     <li><a href="login.php" class ="#login">Login</a></li>
                 </ul>
             </nav>

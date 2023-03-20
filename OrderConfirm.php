@@ -1,6 +1,36 @@
 <?php
-ob_start();
-error_reporting(0);
+    session_start();
+    if (!isset($_SESSION["email"]))
+    {
+        header("Location: index.php");
+        exit();
+    }
+    else
+    {
+        $email = $_SESSION["email"];
+        $price = $_SESSION["productprice"];
+        $image = $_SESSION["ProductImage"];
+        $name = $_SESSION["ProductName"];
+        $address = $_SESSION["address"];
+        $orderid = $_SESSION["OrderID"];
+        $userid = $_SESSION["UserID"];
+
+        
+        $db = new mysqli("localhost", "username", "password", "database");
+        if ($db->connect_error) {
+            die ("Connection failed: " . $db->connect_error);
+        }
+    }
+
+    $q1 = "Select OrderReceive FROM Orders WHERE OrderID = '$orderid' AND UserID = '$userid'";
+    $r1 = $db->query($q1);
+
+    while ($row = mysqli_fetch_assoc($r1))
+    {
+        $_SESSION["OrderReceive"] = $row["OrderReceive"];
+    }
+
+
 ?>
 
 <!DOCTYPE html>
@@ -22,7 +52,7 @@ error_reporting(0);
     <header>
         <div class="nav-container">
             <div class="logo">
-                <a href="index.php"><img src="https://img.memerial.net/page/2781/mars-has-no-life.jpg" ></a>
+                <a href="indexloggedin.php"><img src="https://img.memerial.net/page/2781/mars-has-no-life.jpg" ></a>
             </div>
 
 
@@ -34,9 +64,10 @@ error_reporting(0);
 
             <nav class="nav-bar">
                 <ul>
-                    <li><a href="index.php" class="active">No Mars</a></li>
-                    <li><a href="Category.php" class="#category">Category</a></li>
-                    <li><a href="Products.php" class="#products">Products</a></li>
+                    <li><a href="indexloggedin.php" class="active">No Mars</a></li>
+                    <li><a href="Categoryloggedin.php" class="#category">Category</a></li>
+                    <li><a href="Productsloggedin.php" class="#products">Products</a></li>
+                    <li><a href="logout.php" class ="#logout">Logout</a></li>
                 </ul>
             </nav>
             </div>
@@ -44,33 +75,11 @@ error_reporting(0);
     </header>
 
     <div class="poggers">
-        <form id="signup" action="signup.php" method="post" enctype="multipart/form-data">
-        <h2>Registration</h2>
-        <div class="input-box">
-        <input type="text" placeholder="Enter your email" id="email" name="email">
-        </div>
-        <br>
-        <div class="input-box">
-        <input type="text" placeholder="Enter your first name" id="fname" name ="fname">
-        </div>
-        <br>
-        <div class="input-box">
-        <input type="text" placeholder="Enter your last name" id="lname" name="lname">
-        </div>
-        <br>
-        <div class="input-box">
-        <input type="password" placeholder="Create password" id="pswd" name="pswd">
-        </div>
-        <br>
-        <div class="input-box">
-        <input type="password" placeholder="Confirm password" id="pwsdr" name="pwsdr">
-        </div>
-        <br>
-        <div class="input-box button">
-        <input type="submit" name="submit" value="Register">
-        </div>
-        </form>
-        <h2>Already have an account? <a href="http://www2.cs.uregina.ca/~trinh23t/nomarsteam/login.php"> Login here </a> </h2>
+    <h2>Thank you for purchasing the <?php echo $name?> </h2>
+    <div>
+        <image src="<?php echo $image ?>" class="smaller"></image>
+    </div>
+    <h2>Your order will be arriving at <?php echo $address ?> on the date <?php echo $_SESSION["OrderReceive"] ?> .</h2>
     </div>
 
     <div class="footer">
@@ -120,55 +129,3 @@ error_reporting(0);
         <script type="text/javascript" src="No Mar.js"> </script> 
 </body>
 </html>
-
-<?php
-
-if ($_POST['submit'])
-{
-    $email = trim($_POST["email"]);
-    $password = trim($_POST["pswd"]);
-    $passwordr = trim($_POST["pswdr"]);
-    $fname = trim($_POST["fname"]);
-    $lname = trim($_POST["lname"]);
-    $validate = true;
-
-
-    $db = new mysqli("localhost", "username", "password", "database");
-    if ($db->connect_error)
-    {
-        die ("Connection failed: " . $db->connect_error);
-    }
-
-
-    if($validate == true)
-       {
-           $q2 = "INSERT INTO User (email, Firstname , LastName, Password) VALUES ('$email', '$fname', '$lname', '$password')";
-           $r2 = $db->query($q2);
-           echo "Data is inserted.";
-           
-           if ($r2 === true)
-           {
-               echo "r2 is true.";
-               header("Location: login.php");
-               $db->close();
-               exit();
-           }
-       }
-       else
-       {
-           $error = "Signup failed.";
-           $db->close();
-           exit();
-       }
-
-
-
-
-
-        }
-
-
-
-
-
-?>

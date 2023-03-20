@@ -32,7 +32,6 @@
                     <li><a href="index.php" class="active">No Mars</a></li>
                     <li><a href="Category.php" class="#category">Category</a></li>
                     <li><a href="Products.php" class="#products">Products</a></li>
-                    <li><a href="New.php" class="#news">News</a></li>
                     <li><a href="login.php" class ="#login">Login</a></li>
                 </ul>
             </nav>
@@ -70,13 +69,11 @@
                                 <i class="fa-solid fa-star"></i>
                             </div>
                             <div class="price">
-                                <label class="sale">$89.99</label>
                                 <label>49.99</label>
                             </div>
                         </div>
                     </div>
-					
-					
+                    <img class="imagecart" id="Img" src="cart.jpg" />
                     <div class="most-rated-item">
                         <div class="most-rated-image">
                             <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTObLrbYIYDh_qmEIaBWN7rqgVgAerAE4b37g&usqp=CAU">
@@ -180,7 +177,7 @@
             </div>
         </div>
 
-        <script src="No Mars.js"></script>
+        <script src="No Mar.js"></script>
 </body>
 
 </html>

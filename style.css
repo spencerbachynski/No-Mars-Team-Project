@@ -1,6 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap');
 
 
+.smaller
+{
+    position: relative;
+    display: box !important;
+    max-height: 300px !important;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -31,6 +38,11 @@ img {
     padding: 0 100px;
     z-index: 1;
     position: absolute;
+}
+
+.imagecart{
+    position: relative;
+    width: 3% !important;
 }
 
 .nav-container .logo {

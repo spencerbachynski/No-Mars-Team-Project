@@ -8,9 +8,10 @@
     else
     {
         $email = $_SESSION["email"];
+        $price = $_SESSION["price"];
 
         
-        $db = new mysqli("mysqlusr.cs.uregina.ca", "trinh23t", "nomarsteam", "trinh23t-0");
+        $db = new mysqli("localhost", "username", "password", "database");
         if ($db->connect_error) {
             die ("Connection failed: " . $db->connect_error);
         }
@@ -40,7 +41,7 @@
     <header>
         <div class="nav-container">
             <div class="logo">
-                <a href="index.php"><img src="https://img.memerial.net/page/2781/mars-has-no-life.jpg" ></a>
+                <a href="indexloggedin.php"><img src="https://img.memerial.net/page/2781/mars-has-no-life.jpg" ></a>
             </div>
 
 
@@ -52,11 +53,10 @@
 
             <nav class="nav-bar">
                 <ul>
-                    <li><a href="index.php" class="active">No Mars</a></li>
-                    <li><a href="Category.php" class="#category">Category</a></li>
-                    <li><a href="Products.php" class="#products">Products</a></li>
-                    <li><a href="New.php" class="#news">News</a></li>
-                    <li><a href="login.php" class ="#login">Login</a></li>
+                    <li><a href="indexloggedin.php" class="active">No Mars</a></li>
+                    <li><a href="Productsloggedin.php" class="#products">Products</a></li>
+                    <li><a href="cart.php" class ="#cart">Cart ($ <?php echo $price ?> ) </a> </li>
+                    <li><a href="logout.php" class ="#logout">Logout</a></li>
                 </ul>
             </nav>
         </div>
@@ -82,7 +82,7 @@
                     <div class="box-content">
                         <h3>Last Years's Trends</h3>
                         <label>Man</label>
-                        <a href="Men.php">Go Here</a>
+                        <a href="Menloggedin.php">Go Here</a>
                     </div>
                     <img src="https://yt3.googleusercontent.com/XoJ1Nda2YHyMatcBpaSMWiMUmfG71MEp4HWj_WBh1oEGW_u-IB7dQYnJD28WGA9N11Fe2Ouh=s900-c-k-c0x00ffffff-no-rj">
                 </div>

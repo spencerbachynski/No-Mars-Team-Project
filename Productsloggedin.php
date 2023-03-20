@@ -8,15 +8,16 @@
     else
     {
         $email = $_SESSION["email"];
-        $price = $_SESSION["price"];
-
+        $price = $_SESSION["productprice"];
         
         $db = new mysqli("localhost", "username", "password", "database");
         if ($db->connect_error) {
             die ("Connection failed: " . $db->connect_error);
         }
     }
-    
+
+
+
 
 ?>
 
@@ -39,7 +40,7 @@
     <header>
         <div class="nav-container">
             <div class="logo">
-                <a href="indexloggedin.php"><img src="https://img.memerial.net/page/2781/mars-has-no-life.jpg"> </a>
+                <a href="indexloggedin.php"><img src="https://img.memerial.net/page/2781/mars-has-no-life.jpg" ></a>
             </div>
 
 
@@ -51,47 +52,15 @@
 
             <nav class="nav-bar">
                 <ul>
+                <li><a href="indexloggedin.php" class="active">No Mars</a></li>
                     <li><a href="Categoryloggedin.php" class="#category">Category</a></li>
-                    <li><a href="Productsloggedin.php" class="#products">Products</a></li>
                     <li><a href="cart.php" class ="#cart">Cart ($ <?php echo $price ?> ) </a> </li>
                     <li><a href="logout.php" class ="#logout">Logout</a></li>
                 </ul>
             </nav>
         </div>
     </header>
-
-    <div class="content">
-        <div class="content-box">
-            <h2>Get upto 45% <br> off new products</h2>
-            <label>The biggest sale of the year is at <span>No Mars Clothing</span></label> <br>
-            <a href="Products.php">Shop now<i class="fa-solid fa-arrow-right" ></i></a>
-        </div>
-    </div>
-
-    <div class="category" id="category">
-        <div class="category-title">
-            <h2>No Mars Clothes Category</h2>
-        </div>
-        <div class="category-box">
-            <div class="box woman-box">
-                <div class="box-content b2">
-                    <h3>Most Popular Styles</h3>
-                    <label>Woman</label>
-                    <a href="Woman.php">Go Here</a>
-                </div>
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRZ0TDJIsMFHaOnsWDhmv41hYggjbrfmE1uLw&usqp=CAU">
-            </div>
-            <div class="category-box">
-                <div class="box man-box">
-                    <div class="box-content">
-                        <h3>Last Years's Trends</h3>
-                        <label>Man</label>
-                        <a href="Men.php">Go Here</a>
-                    </div>
-                    <img src="https://yt3.googleusercontent.com/XoJ1Nda2YHyMatcBpaSMWiMUmfG71MEp4HWj_WBh1oEGW_u-IB7dQYnJD28WGA9N11Fe2Ouh=s900-c-k-c0x00ffffff-no-rj">
-                </div>
-            </div>
-        </div>
+<br>
 
         <div class="most-rated">
             <div class="most-rated-box">
@@ -243,65 +212,15 @@
                 </div>
 
                 <div class="popular-products-btn">
-                    <button type = "button" ><a href = "Products.php"> More</a></button>
+                    <button>More</button>
                 </div>
 
             </div>
         </div>
-
-        <div class="discount-news">
-            <div class="discount-news-box">
-                <div class="discount-news-content">
-                    <p>80% discount on all products for <br> new year</p>
-                    <div class="time">
-                        <label>15<span>:</span></label> <!--Day-->
-                        <label>12<span>:</span></label> <!--Hours-->
-                        <label>57<span>:</span></label> <!--Minutes-->
-                        <label>05</label> <!--Seconds-->
-                    </div>
-                </div>
-                <div class="discount-news-image">
-                    <img src="https://i0.wp.com/stanzaliving.wpcomstaging.com/wp-content/uploads/2022/05/Malls-in-Mumbai.jpg?fit=1000%2C678&ssl=1">
-                </div>
-            </div>
-        </div>
-
-        <div class="our-services">
-            <div class="our-services-box">
-                <div class="our-services-item">
-                    <div class="our-services-icon">
-                        <i class="fa-regular fa-user"></i>
-                    </div>
-                    <div class="our-services-body">
-                        <h3>24/7 Customer Review</h3>
-                        <label>Customer Review comes here</label>
-                    </div>
-                </div>
-
-                <div class="our-services-item">
-                    <div class="our-services-icon">
-                        <i class="fa-regular fa-credit-card"></i>
-                    </div>
-                    <div class="our-services-body">
-                        <h3>Secure Payment</h3>
-                        <label>Customer Review comes here</label>
-                    </div>
-                </div>
-
-                <div class="our-services-item">
-                    <div class="our-services-icon">
-                        <i class="fa-solid fa-dollar-sign"></i>
-                    </div>
-                    <div class="our-services-body">
-                        <h3>Return Gaurantee</h3>
-                        <label>Customer Review comes here</label>
-                    </div>
-                </div>
-            </div>
-        </div>
-<br>
-
-        <div class="footer">
+		
+		<br>
+		
+       <div class="footer">
             <div class="footer-box">
                 <div class="footer-i f1">
                     <h4>Contact</h4>
@@ -338,15 +257,15 @@
                     <input type="text" placeholder="Email Address">
                     <button><i class="fa-solid fa-share"></i></button>
                     <div class="social-media">
-                        <a href="https://github.com/"><i class="fa-brands fa-github"></i></a>
-                        <a href="https://www.instagram.com/"><i class="fa-brands fa-instagram"></i></a>
-                        <a href="https://twitter.com/"><i class="fa-brands fa-twitter"></i></a> 
+                        <a href="#"><i class="fa-brands fa-github"></i></a>
+                        <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#"><i class="fa-brands fa-twitter"></i></a> 
                     </div>
                 </div>
             </div>
         </div>
 
-        <script src="No Mars.js"></script>
+        <script src="No Mar.js"></script>
 </body>
 
 </html>

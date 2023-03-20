@@ -1,3 +1,36 @@
+<?php
+    session_start();
+    if (!isset($_SESSION["email"]))
+    {
+        header("Location: index.php");
+        exit();
+    }
+    else
+    {
+        $email = $_SESSION["email"];
+
+        
+        $db = new mysqli("localhost", "username", "password", "database");
+        if ($db->connect_error) {
+            die ("Connection failed: " . $db->connect_error);
+        }
+    }
+
+    $price = trim($_GET["productprice"]);
+    $_SESSION["productprice"] = $price;
+
+    $q1 = "SELECT ProductName, ProductPrice, ProductImage FROM Product WHERE ProductPrice = '$price'";
+    $result = $db->query($q1);
+
+    echo $price;
+    while ($row = mysqli_fetch_assoc($result))
+    {
+        $_SESSION["ProductName"] = $row["ProductName"];
+        $_SESSION["ProductImage"] = $row["ProductImage"];
+    }
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -17,7 +50,7 @@
     <header>
         <div class="nav-container">
             <div class="logo">
-                <a href="index.php"><img src="https://img.memerial.net/page/2781/mars-has-no-life.jpg" ></a>
+                <a href="indexloggedin.php"><img src="https://img.memerial.net/page/2781/mars-has-no-life.jpg" ></a>
             </div>
 
 
@@ -29,43 +62,80 @@
 
             <nav class="nav-bar">
                 <ul>
-                    <li><a href="index.php" class="active">No Mars</a></li>
-                    <li><a href="Category.php" class="#category">Category</a></li>
-                    <li><a href="Products.php" class="#products">Products</a></li>
-                    <li><a href="login.php" class ="#login">Login</a></li>
+                    <li><a href="indexloggedin.php" class="active">No Mars</a></li>
+                    <li><a href="Categoryloggedin.php" class="#category">Category</a></li>
+                    <li><a href="Productsloggedin.php" class="#products">Products</a></li>
+                    <li><a href="cart.php" class ="#cart">Cart ($ <?php echo $price ?> ) </a> </li>
+                    <li><a href="logout.php" class ="#logout">Logout</a></li>
                 </ul>
             </nav>
         </div>
     </header>
-	
-	<br>
-	
-	  <div class="category" id="category">
+<br>
+
+ <div class="category" id="category">
         <div class="category-title">
             <h2>No Mars Clothes Category</h2>
         </div>
-        <div class="category-box">
-            <div class="box woman-box">
-                <div class="box-content b2">
-                    <h3>Most Popular Styles</h3>
-                    <label>Woman</label>
-                    <a href="Woman.php">Go Here</a>
-                </div>
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRZ0TDJIsMFHaOnsWDhmv41hYggjbrfmE1uLw&usqp=CAU">
-            </div>
-            <div class="category-box">
+		  <div class="category-box">
                 <div class="box man-box">
                     <div class="box-content">
                         <h3>Last Years's Trends</h3>
                         <label>Man</label>
-                        <a href="Men.php">Go Here</a>
+                     
                     </div>
                     <img src="https://yt3.googleusercontent.com/XoJ1Nda2YHyMatcBpaSMWiMUmfG71MEp4HWj_WBh1oEGW_u-IB7dQYnJD28WGA9N11Fe2Ouh=s900-c-k-c0x00ffffff-no-rj">
                 </div>
             </div>
         </div>
-		
-		     <div class="our-services">
+
+   <div class="most-rated-item">
+                        <div class="most-rated-image">
+                            <img src="https://www.autry-usa.com/upload/articoli/thumbs/MEDALIST-LOW-SNEAKER-IN-SUEDE-E-PELLE-BIANCA-E-LAVANDER-AUTRY_2268_thumb@2x.jpg">
+                        </div>
+                        <div class="most-rated-body">
+                            <h4>Unisex Shoe</h4>
+                            <div class="icons">
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                            </div>
+                            <div class="price">
+                                <label>49.99</label>
+                            </div>
+                        </div>
+                    </div>
+                    <form id="productprice" action="Menloggedin.php" method="get" enctype="multipart/form-data">
+                    <button type="submit" name="productprice" id="productprice" value="49.99">
+                        Add to Cart
+                    </button>
+                    </form>
+                    <div class="most-rated-item">
+                        <div class="most-rated-image">
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTObLrbYIYDh_qmEIaBWN7rqgVgAerAE4b37g&usqp=CAU">
+                        </div>
+                        <div class="most-rated-body">
+                            <h4>Man T-Shirt</h4>
+                            <div class="icons">
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                            </div>
+                            <div class="price">
+                                <label class="sale">$89.99</label>
+                                <label>49.99</label>
+                            </div>
+                        </div>
+                    </div>
+              
+           
+                   
+					
+					      <div class="our-services">
             <div class="our-services-box">
                 <div class="our-services-item">
                     <div class="our-services-icon">
@@ -145,7 +215,9 @@
             </div>
         </div>
 
-        <script src="No Mars.js"></script>
+        <script src="No Mar.js"></script>
 </body>
 
 </html>
+
+

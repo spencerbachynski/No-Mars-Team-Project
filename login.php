@@ -37,7 +37,6 @@ error_reporting(0);
                     <li><a href="index.php" class="active">No Mars</a></li>
                     <li><a href="Category.php" class="#category">Category</a></li>
                     <li><a href="Products.php" class="#products">Products</a></li>
-                    <li><a href="New.php" class="#news">News</a></li>
                 </ul>
             </nav>
             </div>
@@ -50,12 +49,13 @@ error_reporting(0);
         <div class="input-box">
         <input type="text" placeholder="Enter your email" id="email" name="email">
         </div>
+        <br>
         <div class="input-box">
         <input type="password" placeholder="Enter your password" id="pswd" name="pswd">
         </div>
         <br>
         <div class="input-box button">
-        <input type="submit" name="submit" value="submit">
+        <input type="submit" name="submit" value="Login">
         </div>
         </form>
 
@@ -118,7 +118,7 @@ if ($_POST['submit'])
     $password = trim($_POST["pswd"]);
 
 
-    $db = new mysqli("mysqlusr.cs.uregina.ca", "username", "password", "database");
+    $db = new mysqli("localhost", "username", "password", "database");
     if ($db->connect_error)
     {
         die ("Connection failed: " . $db->connect_error);
