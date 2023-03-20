@@ -134,7 +134,7 @@ if ($_POST['submit'])
     $validate = true;
 
 
-    $db = new mysqli("mysqlusr.cs.uregina.ca", "username", "password", "database");
+    $db = new mysqli("mysqlusr.cs.uregina.ca", "trinh23t", "nomarsteam", "trinh23t-0");
     if ($db->connect_error)
     {
         die ("Connection failed: " . $db->connect_error);
