@@ -11,7 +11,7 @@
         $price = $_SESSION["price"];
 
         
-        $db = new mysqli("mysqlusr.cs.uregina.ca", "trinh23t", "nomarsteam", "trinh23t-0");
+        $db = new mysqli("localhost", "username", "password", "database");
         if ($db->connect_error) {
             die ("Connection failed: " . $db->connect_error);
         }
