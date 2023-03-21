@@ -76,8 +76,8 @@
 
     <div class="content">
         <div class="content-box">
-            <h2>Get upto 45% <br> off new products</h2>
-            <label>The biggest sale of the year is at <span>No Mars Clothing</span></label> <br>
+            <h2> No Mars <br> Clothing <br></h2>
+            <label> BY <br><span> SPENCER <br> TONY <br> JAY </span></label> <br>
             <a href="Products.php">Shop now<i class="fa-solid fa-arrow-right" ></i></a>
         </div>
     </div>
@@ -335,6 +335,18 @@
                     <div class="our-services-body">
                         <h3>24/7 Customer Review</h3>
                         <label>Customer Review comes here</label>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <label>Nina: The unisex shoes were good. The quality and fit was better than expected.</label>
+                        <br>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <label>Greg: Amazing T-shirt. Color does not leave after washing and true to size.</label>
                     </div>
                 </div>
 
