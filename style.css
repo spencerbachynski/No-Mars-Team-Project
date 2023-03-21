@@ -95,8 +95,14 @@ img {
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: fixed;
+    animation: animateUser 4s ease-in-out infinite;
 }
-
+@keyframes animateUser{
+    100%{
+        left: 40px;
+        bottom: -60px;
+    }
+}
 
 /*added */
 .poggers{
